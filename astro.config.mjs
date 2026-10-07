@@ -2,7 +2,6 @@
 import cloudflare from '@astrojs/cloudflare';
 import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import { sessionDrivers } from 'astro/config';
@@ -64,14 +63,6 @@ export default defineConfig({
   integrations: [
     // MDX support for blog posts, docs, and content
     mdx(),
-    // Generate sitemap.xml, excluding pages flagged noIndex={true}
-    sitemap({
-      filter: (page) => {
-        const { pathname } = new URL(page);
-        const normalized = pathname.endsWith('/') ? pathname : pathname + '/';
-        return !noIndexPaths.has(normalized);
-      },
-    }),
   ],
   markdown: {
     syntaxHighlight: 'shiki',

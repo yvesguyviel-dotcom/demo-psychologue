@@ -37,6 +37,7 @@ const htmlLang = lang ?? Astro.currentLocale ?? SITE.lang;
       noIndex={noIndex}
       canonicalUrl={canonicalUrl}
     />
+    {!noIndex && <meta name="robots" content="noindex, nofollow" />}
     <!-- Mark JS as enabled immediately -->
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
