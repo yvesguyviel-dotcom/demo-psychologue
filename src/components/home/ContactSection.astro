@@ -1,0 +1,101 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section id="contact" class="py-20 md:py-28 bg-background" data-ps="src/components/home/ContactSection.astro:section">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start" data-ps="src/components/home/ContactSection.astro:u49deb">
+      <!-- Left col: Address and access (5/12) -->
+      <div class="lg:col-span-5" data-ps="src/components/home/ContactSection.astro:u49dec">
+        <div class="inline-flex items-center gap-2 mb-3 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/components/home/ContactSection.astro:v3uk7g">
+          <span data-ps="src/components/home/ContactSection.astro:q5tl4r">Cabinet & rendez-vous</span>
+        </div>
+        <h2 class="font-display font-serif text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-4" data-ps="src/components/home/ContactSection.astro:l8b416">
+          Contact et accès
+        </h2>
+        <p class="text-base text-muted-foreground leading-relaxed mb-8" data-ps="src/components/home/ContactSection.astro:k7cjin">
+          Le cabinet de consultation est situé au centre-ville de Toulon, dans un cadre discret et facilement accessible par les transports en commun.
+        </p>
+
+        <div class="space-y-6" data-ps="src/components/home/ContactSection.astro:v3uk7f">
+          <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/components/home/ContactSection.astro:v3uk7e">
+            <h3 class="font-serif font-medium text-base text-foreground mb-3" data-ps="src/components/home/ContactSection.astro:6jw6ti">Adresse du cabinet</h3>
+            <p class="text-sm text-foreground m-0 font-medium" data-ps="src/components/home/ContactSection.astro:k7cjim">{SITE.name}, psychologue</p>
+            <p class="text-sm text-muted-foreground m-0" data-ps="src/components/home/ContactSection.astro:k7cjil">{SITE.address.street}</p>
+            <p class="text-sm text-muted-foreground m-0" data-ps="src/components/home/ContactSection.astro:k7cjhz">{SITE.address.postalCode} {SITE.address.city}</p>
+          </div>
+
+          <div class="p-6 rounded-lg bg-surface border border-border space-y-3" data-ps="src/components/home/ContactSection.astro:v3uk7d">
+            <h3 class="font-serif font-medium text-base text-foreground mb-3" data-ps="src/components/home/ContactSection.astro:6jw6tj">Contact direct</h3>
+            <div data-ps="src/components/home/ContactSection.astro:v3uk7c">
+              <span class="block text-xs text-muted-foreground" data-ps="src/components/home/ContactSection.astro:q5tl4q">Téléphone</span>
+              <a href={`tel:${SITE.phoneFormatted}`} class="text-sm font-medium text-foreground hover:text-primary transition-colors no-underline" data-ps="src/components/home/ContactSection.astro:d3emto">
+                {SITE.phone}
+              </a>
+            </div>
+            <div data-ps="src/components/home/ContactSection.astro:v3uk7b">
+              <span class="block text-xs text-muted-foreground" data-ps="src/components/home/ContactSection.astro:q5tl4p">Courriel</span>
+              <a href={`mailto:${SITE.email}`} class="text-sm font-medium text-foreground hover:text-primary transition-colors no-underline" data-ps="src/components/home/ContactSection.astro:d3emtn">
+                {SITE.email}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right col: Access details & booking CTA (7/12) -->
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-8" data-ps="src/components/home/ContactSection.astro:v3uk7a">
+        <div class="p-8 rounded-lg bg-surface border border-border" data-ps="src/components/home/ContactSection.astro:v3uk79">
+          <h3 class="font-serif font-medium text-xl text-foreground mb-4" data-ps="src/components/home/ContactSection.astro:6jw6tk">
+            Modalités de prise de rendez-vous
+          </h3>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-6" data-ps="src/components/home/ContactSection.astro:k7cjhy">
+            Les consultations ont lieu exclusivement sur rendez-vous individuel. Afin de garantir le secret professionnel et la confidentialité des échanges, <strong>aucun formulaire de contact à texte libre</strong> n'est mis à disposition sur ce site.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6" data-ps="src/components/home/ContactSection.astro:v3uk78">
+            <a
+              href={SITE.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3.5 text-sm font-medium transition-colors shadow-xs text-center"
+             data-ps="src/components/home/ContactSection.astro:d3emtm">
+              Prendre rendez-vous en ligne
+            </a>
+            <a
+              href={`tel:${SITE.phoneFormatted}`}
+              class="inline-flex items-center justify-center rounded-md border border-border bg-background hover:bg-surface text-foreground px-6 py-3.5 text-sm font-medium transition-colors text-center"
+             data-ps="src/components/home/ContactSection.astro:d3emt0">
+              Appeler le cabinet ({SITE.phone})
+            </a>
+          </div>
+
+          <p class="text-xs text-muted-foreground m-0" data-ps="src/components/home/ContactSection.astro:k7cjhx">
+            En cas d'indisponibilité téléphonique pendant les consultations, vous pouvez laisser un message avec vos coordonnées afin d'être rappelé(e).
+          </p>
+        </div>
+
+        <div class="p-8 rounded-lg bg-surface border border-border space-y-4" data-ps="src/components/home/ContactSection.astro:v3uk77">
+          <h3 class="font-serif font-medium text-lg text-foreground m-0" data-ps="src/components/home/ContactSection.astro:6jw6tl">
+            Accès et transports à Toulon
+          </h3>
+          <ul class="list-none p-0 m-0 space-y-2.5 text-xs sm:text-sm text-muted-foreground">
+            <li class="flex items-start gap-2" data-ps="src/components/home/ContactSection.astro:lza0i1">
+              <strong class="text-foreground shrink-0 font-medium">Bus :</strong>
+              <span data-ps="src/components/home/ContactSection.astro:q5tl4o">Réseau Mistral, lignes 3, 9, 15 (arrêts Liberté ou Jean Jaurès à 2 minutes à pied).</span>
+            </li>
+            <li class="flex items-start gap-2" data-ps="src/components/home/ContactSection.astro:lza0i2">
+              <strong class="text-foreground shrink-0 font-medium">Train :</strong>
+              <span data-ps="src/components/home/ContactSection.astro:q5tl4n">Gare SNCF de Toulon située à environ 8 minutes à pied.</span>
+            </li>
+            <li class="flex items-start gap-2" data-ps="src/components/home/ContactSection.astro:lza0i3">
+              <strong class="text-foreground shrink-0 font-medium">Stationnement :</strong>
+              <span data-ps="src/components/home/ContactSection.astro:q5tl4m">Parkings publics Peiresc et Place d'Armes à proximité immédiate.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

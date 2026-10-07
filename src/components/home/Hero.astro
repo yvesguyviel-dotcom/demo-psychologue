@@ -1,0 +1,78 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section data-role="hero" class="pt-8 pb-16 md:pt-16 md:pb-24" data-ps="src/components/home/Hero.astro:hero">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center" data-ps="src/components/home/Hero.astro:iy4taf">
+      <!-- Text column (7/12) -->
+      <div class="lg:col-span-7 flex flex-col justify-center min-w-0" data-ps="src/components/home/Hero.astro:iy4tag">
+        <div class="inline-flex items-center gap-2 mb-4 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/components/home/Hero.astro:iy4tah">
+          <span data-ps="src/components/home/Hero.astro:z1i1xe">Cabinet de psychologie libéral</span>
+          <span class="w-1 h-1 rounded-full bg-primary" data-ps="src/components/home/Hero.astro:z1i1xd"></span>
+          <span data-ps="src/components/home/Hero.astro:z1i1xc">Toulon</span>
+        </div>
+
+        <h1 class="font-display font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-foreground mb-6 leading-[1.1]" data-ps="src/components/home/Hero.astro:307k1p">
+          Léa Marchand, psychologue
+        </h1>
+
+        <p class="text-base sm:text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed font-normal" data-ps="src/components/home/Hero.astro:6uykn2">
+          Un accompagnement psychologique individuel, confidentiel et rigoureux à Toulon. Espace d'écoute neutre et cadre de consultation structuré pour adultes.
+        </p>
+
+        <!-- CTAs visible without scrolling -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4" data-ps="src/components/home/Hero.astro:ecxgf3">
+          <a
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3.5 text-sm font-medium transition-colors shadow-xs"
+           data-ps="src/components/home/Hero.astro:8zc1w">
+            Prendre rendez-vous
+          </a>
+          <a
+            href="#approche"
+            class="inline-flex items-center justify-center rounded-md border border-border bg-surface hover:bg-border/60 text-foreground px-6 py-3.5 text-sm font-medium transition-colors"
+           data-ps="src/components/home/Hero.astro:8zc1x">
+            En savoir plus
+          </a>
+        </div>
+
+        <!-- RPPS and Diploma -->
+        <div class="mt-10 pt-8 border-t border-border/80 flex flex-wrap items-center gap-6 sm:gap-8 text-xs text-muted-foreground" data-ps="src/components/home/Hero.astro:ecxgf4">
+          <div data-ps="src/components/home/Hero.astro:ecxgf5">
+            <span class="block font-medium text-foreground" data-ps="src/components/home/Hero.astro:z1i1xb">N° RPPS</span>
+            <span data-ps="src/components/home/Hero.astro:z1i1xa">{SITE.rpps}</span>
+          </div>
+          <div class="hidden sm:block w-px h-8 bg-border" data-ps="src/components/home/Hero.astro:ecxgf6"></div>
+          <div data-ps="src/components/home/Hero.astro:ecxgf7">
+            <span class="block font-medium text-foreground" data-ps="src/components/home/Hero.astro:z1i1wo">Diplôme</span>
+            <span data-ps="src/components/home/Hero.astro:z1i1wn">{SITE.diploma}</span>
+          </div>
+          <div class="hidden sm:block w-px h-8 bg-border" data-ps="src/components/home/Hero.astro:ecxgf8"></div>
+          <div data-ps="src/components/home/Hero.astro:ecxgf9">
+            <span class="block font-medium text-foreground" data-ps="src/components/home/Hero.astro:z1i1wm">Cadre</span>
+            <span data-ps="src/components/home/Hero.astro:z1i1wl">Consultation pour adultes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image column (5/12) -->
+      <div class="lg:col-span-5" data-ps="src/components/home/Hero.astro:ecxgfa">
+        <div class="relative rounded-lg overflow-hidden border border-border bg-surface aspect-[4/5] shadow-xs" data-ps="src/components/home/Hero.astro:ecxgfb">
+          <img
+            src="https://images.pexels.com/photos/15172652/pexels-photo-15172652.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Intérieur sobre et lumineux d'un cabinet de psychologie à Toulon"
+            class="w-full h-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            width="1920"
+            height="2400" data-ps="src/components/home/Hero.astro:gfvoyy" />
+          <div class="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none" data-ps="src/components/home/Hero.astro:ecxgfc"></div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

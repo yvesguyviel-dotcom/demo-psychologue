@@ -1,0 +1,96 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section id="tarifs" class="py-20 md:py-28 bg-background" data-ps="src/components/home/Tariffs.astro:section">
+  <Container>
+    <div class="max-w-3xl mb-12" data-ps="src/components/home/Tariffs.astro:i9eqd5">
+      <div class="inline-flex items-center gap-2 mb-3 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/components/home/Tariffs.astro:i9eqd6">
+        <span data-ps="src/components/home/Tariffs.astro:f9eeqb">Transparence & conditions</span>
+      </div>
+      <h2 class="font-display font-serif text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-4" data-ps="src/components/home/Tariffs.astro:mp2ykw">
+        Tarifs et modalités
+      </h2>
+      <p class="text-base text-muted-foreground leading-relaxed" data-ps="src/components/home/Tariffs.astro:7nuzvd">
+        Les séances se déroulent exclusivement sur rendez-vous au cabinet à Toulon. Les conditions de consultation sont présentées en toute clarté dès le premier entretien.
+      </p>
+    </div>
+
+    <!-- Pricing layout: 2 complementary cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch" data-ps="src/components/home/Tariffs.astro:ec4qry">
+      <!-- Main consultation card (5/12) -->
+      <div class="lg:col-span-5 p-8 rounded-lg bg-surface border border-border flex flex-col justify-between shadow-xs" data-ps="src/components/home/Tariffs.astro:ec4qrz">
+        <div data-ps="src/components/home/Tariffs.astro:ec4qs0">
+          <div class="text-xs font-medium uppercase tracking-wider text-primary mb-2" data-ps="src/components/home/Tariffs.astro:ec4qs1">Entretien individuel</div>
+          <h3 class="font-display font-serif text-2xl font-normal text-foreground mb-4" data-ps="src/components/home/Tariffs.astro:80o1d8">
+            Séance de consultation
+          </h3>
+          <div class="flex items-baseline gap-2 mb-6" data-ps="src/components/home/Tariffs.astro:ec4qs2">
+            <span class="font-display font-serif text-4xl font-normal text-foreground" data-ps="src/components/home/Tariffs.astro:f9eeqc">60 €</span>
+            <span class="text-sm text-muted-foreground" data-ps="src/components/home/Tariffs.astro:f9eeqy">/ séance (45 min)</span>
+          </div>
+          <ul class="list-none p-0 m-0 space-y-3 text-sm text-foreground">
+            <li class="flex items-start gap-2.5" data-ps="src/components/home/Tariffs.astro:ng1v1q">
+              <span class="text-primary font-bold" data-ps="src/components/home/Tariffs.astro:f9eeqz">✓</span>
+              <span data-ps="src/components/home/Tariffs.astro:f9eer0">Entretien individuel pour adultes</span>
+            </li>
+            <li class="flex items-start gap-2.5" data-ps="src/components/home/Tariffs.astro:ng1v1r">
+              <span class="text-primary font-bold" data-ps="src/components/home/Tariffs.astro:f9eer1">✓</span>
+              <span data-ps="src/components/home/Tariffs.astro:f9eer2">Cadre confidentiel et bienveillant</span>
+            </li>
+            <li class="flex items-start gap-2.5" data-ps="src/components/home/Tariffs.astro:ng1v1s">
+              <span class="text-primary font-bold" data-ps="src/components/home/Tariffs.astro:f9eer3">✓</span>
+              <span data-ps="src/components/home/Tariffs.astro:f9eer4">Facture remise sur demande pour votre mutuelle</span>
+            </li>
+            <li class="flex items-start gap-2.5" data-ps="src/components/home/Tariffs.astro:ng1v1t">
+              <span class="text-primary font-bold" data-ps="src/components/home/Tariffs.astro:f9eer5">✓</span>
+              <span data-ps="src/components/home/Tariffs.astro:f9eer6">Règlement par carte bancaire ou chèque</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-border" data-ps="src/components/home/Tariffs.astro:ec4qs3">
+          <a
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3 text-sm font-medium transition-colors shadow-xs text-center"
+           data-ps="src/components/home/Tariffs.astro:erswka">
+            Prendre rendez-vous
+          </a>
+        </div>
+      </div>
+
+      <!-- Modalities details (7/12) -->
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-6" data-ps="src/components/home/Tariffs.astro:ec4qs4">
+        <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/components/home/Tariffs.astro:ec4qs5">
+          <h3 class="font-serif font-medium text-lg text-foreground mb-2" data-ps="src/components/home/Tariffs.astro:80o1d9">
+            Prise en charge et mutuelles
+          </h3>
+          <p class="text-sm text-muted-foreground leading-relaxed m-0" data-ps="src/components/home/Tariffs.astro:7nuzvz">
+            Les consultations avec une psychologue libérale ne sont pas prises en charge par l'Assurance Maladie (Sécurité sociale). Toutefois, un nombre croissant de mutuelles et complémentaires santé remboursent tout ou partie d'un forfait annuel de séances. Une facture détaillée vous est adressée sur demande à chaque fin de séance.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/components/home/Tariffs.astro:ec4qs6">
+          <h3 class="font-serif font-medium text-lg text-foreground mb-2" data-ps="src/components/home/Tariffs.astro:80o1da">
+            Règlement et facturation
+          </h3>
+          <p class="text-sm text-muted-foreground leading-relaxed m-0" data-ps="src/components/home/Tariffs.astro:7nuzw0">
+            Le règlement s'effectue à la fin de chaque consultation, par carte bancaire ou chèque bancaire. Aucun paiement différé n'est pratiqué afin de maintenir la clarté du cadre d'accompagnement.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/components/home/Tariffs.astro:ec4qs7">
+          <h3 class="font-serif font-medium text-lg text-foreground mb-2" data-ps="src/components/home/Tariffs.astro:80o1db">
+            Politique d'annulation (48h)
+          </h3>
+          <p class="text-sm text-muted-foreground leading-relaxed m-0" data-ps="src/components/home/Tariffs.astro:7nuzw1">
+            Chaque créneau est réservé exclusivement pour vous. En cas d'impossibilité, merci de prévenir au moins 48 heures à l'avance par téléphone ou e-mail. Tout rendez-vous annulé hors délai reste dû, afin de préserver l'organisation du cabinet et de libérer le temps pour d'autres personnes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

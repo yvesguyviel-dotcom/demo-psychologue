@@ -1,0 +1,120 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact et accès — Léa Marchand, psychologue à Toulon"
+  description="Coordonnées, adresse et plan d'accès au cabinet de psychologie de Léa Marchand à Toulon. Prise de rendez-vous en ligne ou contact direct."
+  canonicalUrl={`${SITE.url}/contact`}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact et accès - Léa Marchand',
+    description: "Coordonnées et accès au cabinet de psychologie à Toulon.",
+    url: `${SITE.url}/contact`,
+  }}
+>
+  <div class="py-16 md:py-24" data-ps="src/pages/contact.astro:uoope8">
+    <Container>
+      <div class="max-w-4xl mx-auto" data-ps="src/pages/contact.astro:uoope9">
+        <div class="inline-flex items-center gap-2 mb-4 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/pages/contact.astro:uoopea">
+          <span data-ps="src/pages/contact.astro:lvpf8t">Informations pratiques</span>
+        </div>
+
+        <h1 class="font-display font-serif text-4xl sm:text-5xl font-normal tracking-tight text-foreground mb-6 leading-tight" data-ps="src/pages/contact.astro:xwwf0n">
+          Contact et accès au cabinet
+        </h1>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-10 font-light" data-ps="src/pages/contact.astro:wmga1f">
+          Le cabinet de consultation est situé au centre-ville de Toulon. Les entretiens ont lieu exclusivement sur rendez-vous.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" data-ps="src/pages/contact.astro:uoopeb">
+          <!-- Coordinates & direct contact -->
+          <div class="p-8 rounded-lg bg-surface border border-border space-y-6" data-ps="src/pages/contact.astro:uoopec">
+            <h2 class="font-display font-serif text-2xl font-normal text-foreground" data-ps="src/pages/contact.astro:j8hhsg">Coordonnées</h2>
+
+            <div data-ps="src/pages/contact.astro:uooped">
+              <span class="block text-xs uppercase tracking-wider text-primary font-medium mb-1" data-ps="src/pages/contact.astro:lvpf8u">Praticienne</span>
+              <p class="text-base text-foreground font-medium m-0" data-ps="src/pages/contact.astro:wmga1e">{SITE.name}, psychologue (EI)</p>
+              <p class="text-xs text-muted-foreground m-0" data-ps="src/pages/contact.astro:wmga1d">N° RPPS : {SITE.rpps}</p>
+            </div>
+
+            <div data-ps="src/pages/contact.astro:uoopee">
+              <span class="block text-xs uppercase tracking-wider text-primary font-medium mb-1" data-ps="src/pages/contact.astro:lvpf8v">Adresse</span>
+              <p class="text-sm text-foreground m-0" data-ps="src/pages/contact.astro:wmga1c">{SITE.address.street}</p>
+              <p class="text-sm text-foreground m-0" data-ps="src/pages/contact.astro:wmga1b">{SITE.address.postalCode} {SITE.address.city}</p>
+            </div>
+
+            <div class="pt-3 border-t border-border space-y-3" data-ps="src/pages/contact.astro:uoopef">
+              <div data-ps="src/pages/contact.astro:lx8n1r">
+                <span class="block text-xs text-muted-foreground" data-ps="src/pages/contact.astro:lvpf8w">Téléphone direct</span>
+                <a href={`tel:${SITE.phoneFormatted}`} class="text-base font-medium text-foreground hover:text-primary transition-colors no-underline" data-ps="src/pages/contact.astro:piidce">
+                  {SITE.phone}
+                </a>
+              </div>
+              <div data-ps="src/pages/contact.astro:lx8n1q">
+                <span class="block text-xs text-muted-foreground" data-ps="src/pages/contact.astro:lvpf8x">Courriel</span>
+                <a href={`mailto:${SITE.email}`} class="text-sm font-medium text-foreground hover:text-primary transition-colors no-underline" data-ps="src/pages/contact.astro:piidcd">
+                  {SITE.email}
+                </a>
+              </div>
+            </div>
+
+            <div class="pt-4" data-ps="src/pages/contact.astro:lx8n1p">
+              <a
+                href={SITE.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3.5 text-sm font-medium transition-colors shadow-xs text-center"
+               data-ps="src/pages/contact.astro:piidcc">
+                Prendre rendez-vous en ligne
+              </a>
+            </div>
+          </div>
+
+          <!-- Practical access -->
+          <div class="p-8 rounded-lg bg-surface border border-border space-y-6" data-ps="src/pages/contact.astro:lx8n1o">
+            <h2 class="font-display font-serif text-2xl font-normal text-foreground" data-ps="src/pages/contact.astro:j8hht2">Accès et transports</h2>
+
+            <div class="space-y-4 text-sm text-muted-foreground" data-ps="src/pages/contact.astro:lx8n1n">
+              <div data-ps="src/pages/contact.astro:lx8n1m">
+                <strong class="text-foreground font-medium block mb-1">En bus</strong>
+                <p class="m-0 leading-relaxed" data-ps="src/pages/contact.astro:wmga1a">
+                  Réseau Mistral : lignes 3, 9 et 15. Arrêts <em>Liberté</em> ou <em>Jean Jaurès</em> à moins de 2 minutes de marche.
+                </p>
+              </div>
+
+              <div data-ps="src/pages/contact.astro:lx8n1l">
+                <strong class="text-foreground font-medium block mb-1">En train</strong>
+                <p class="m-0 leading-relaxed" data-ps="src/pages/contact.astro:wmga19">
+                  Gare SNCF de Toulon située à environ 8 minutes à pied du cabinet.
+                </p>
+              </div>
+
+              <div data-ps="src/pages/contact.astro:lx8n1k">
+                <strong class="text-foreground font-medium block mb-1">Stationnement</strong>
+                <p class="m-0 leading-relaxed" data-ps="src/pages/contact.astro:wmga18">
+                  Parkings publics payants : Parking Peiresc (3 min à pied) et Parking Place d'Armes (5 min à pied).
+                </p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-md bg-background border border-border text-xs text-muted-foreground leading-relaxed" data-ps="src/pages/contact.astro:lx8n1j">
+              <strong class="text-foreground font-medium">Confidentialité :</strong> Afin de préserver le secret professionnel, aucun formulaire à texte libre n'est proposé en ligne. Merci de privilégier la prise de rendez-vous externe ou un contact direct.
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency box -->
+        <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/pages/contact.astro:lx8n1i">
+          <p class="text-xs text-muted-foreground leading-relaxed m-0" data-ps="src/pages/contact.astro:wmga17">
+            <strong class="font-medium text-foreground">Mention légale :</strong> Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le 15 ou le 3114. Cabinet fictif à visée de démonstration.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </div>
+</BaseLayout>

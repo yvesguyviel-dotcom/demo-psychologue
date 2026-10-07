@@ -1,0 +1,192 @@
+---
+import '@/styles/global.css';
+import Navigation from '@/components/Navigation.astro';
+import Footer from '@/components/Footer.astro';
+import SEOHead from '@/components/SEOHead.astro';
+import { SITE } from '@/config/site';
+
+const { frontmatter, mdxFilePath = '' } = Astro.props as {
+  frontmatter: any;
+  mdxFilePath?: string;
+};
+const htmlLang = frontmatter.lang ?? Astro.currentLocale ?? SITE.lang;
+
+// Use ogImage if set, otherwise fall back to featured image
+const socialImage = frontmatter.ogImage || frontmatter.image;
+
+// Structured data.
+//
+// The universal fields are built here because only a build knows them: the
+// post's absolute URL and the absolute form of its image. Everything
+// type-specific comes from the `jsonLd` frontmatter key, which the editor
+// writes from the schema form and the AI writes directly for any schema.org
+// type.
+//
+// An array means the author is composing several schemas and takes over
+// entirely. An object of an article family type is merged over the BlogPosting
+// node, its `@type` winning. Any other type (FAQPage, Recipe, Product, ...) is
+// emitted as a `@graph` of the BlogPosting node plus the typed node, so article
+// metadata never lands on a type that is not a CreativeWork. The typed node
+// gets the url and image here because the editor strips them at write time.
+const ARTICLE_TYPES = [
+  'Article',
+  'BlogPosting',
+  'NewsArticle',
+  'TechArticle',
+  'ScholarlyArticle',
+  'Report',
+  'SocialMediaPosting',
+];
+
+const absoluteUrl = new URL(Astro.url.pathname, SITE.url).toString();
+const absoluteImage = !socialImage
+  ? undefined
+  : socialImage.startsWith('http')
+    ? socialImage
+    : new URL(socialImage, SITE.url).toString();
+
+const articleNode = {
+  '@type': 'BlogPosting',
+  name: frontmatter.title,
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  datePublished: frontmatter.pubDate?.toISOString?.(),
+  ...(frontmatter.updatedDate
+    ? { dateModified: frontmatter.updatedDate.toISOString() }
+    : {}),
+  author: {
+    '@type': 'Person',
+    name: frontmatter.author || SITE.name,
+  },
+  url: absoluteUrl,
+  ...(absoluteImage ? { image: absoluteImage } : {}),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl },
+};
+
+const authoredJsonLd = frontmatter.jsonLd ?? null;
+const authoredObject = Array.isArray(authoredJsonLd) ? null : authoredJsonLd;
+const authoredType = authoredObject?.['@type'];
+
+const jsonLd = Array.isArray(authoredJsonLd)
+  ? authoredJsonLd
+  : !authoredType || ARTICLE_TYPES.includes(authoredType)
+    ? {
+        '@context': 'https://schema.org',
+        ...articleNode,
+        ...(authoredObject ?? {}),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@graph': [
+          articleNode,
+          {
+            url: absoluteUrl,
+            ...(absoluteImage ? { image: absoluteImage } : {}),
+            ...authoredObject,
+          },
+        ],
+      };
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <SEOHead
+      title={`${frontmatter.title} – ${SITE.name}`}
+      description={frontmatter.description}
+      image={socialImage}
+      type="article"
+      publishedTime={frontmatter.pubDate?.toISOString?.()}
+      modifiedTime={frontmatter.updatedDate?.toISOString?.()}
+      canonicalUrl={frontmatter.canonicalUrl}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body class="min-h-screen bg-background text-foreground" data-ps="src/layouts/BlogLayout.astro:rqzn4e">
+    <Navigation />
+
+    <article
+      class="container mx-auto max-w-3xl px-4 pb-12 pt-[var(--nav-height)]"
+      data-mdx-file={mdxFilePath}
+      data-mdx-type="blog"
+     data-ps="src/layouts/BlogLayout.astro:xkhs7t">
+      <header class="mb-8" data-ps="src/layouts/BlogLayout.astro:fqly22">
+        {frontmatter.featured && (
+          <span class="inline-block mb-4 px-3 py-1 text-xs font-semibold rounded-full bg-primary text-primary-foreground" data-ps="src/layouts/BlogLayout.astro:9v2262">
+            Featured
+          </span>
+        )}
+        <h1 class="mb-4 text-h1 font-bold" data-ps="src/layouts/BlogLayout.astro:sihpnr">{frontmatter.title}</h1>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground" data-ps="src/layouts/BlogLayout.astro:o33ul8">
+          {frontmatter.pubDate && (
+            <time datetime={frontmatter.pubDate.toISOString()}>
+              {frontmatter.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+          )}
+          {frontmatter.updatedDate && (
+            <span class="flex items-center gap-1" data-ps="src/layouts/BlogLayout.astro:9v2263">
+              <span data-ps="src/layouts/BlogLayout.astro:9v2264">Updated:</span>
+              <time datetime={frontmatter.updatedDate.toISOString()}>
+                {frontmatter.updatedDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </span>
+          )}
+          {frontmatter.author && <span data-ps="src/layouts/BlogLayout.astro:9v2265">by {frontmatter.author}</span>}
+          {frontmatter.category && (
+            <span class="rounded-full px-3 py-1 bg-surface text-foreground" data-ps="src/layouts/BlogLayout.astro:9v2266">
+              {frontmatter.category}
+            </span>
+          )}
+          {frontmatter.readingTime && (
+            <span data-ps="src/layouts/BlogLayout.astro:9v2267">{frontmatter.readingTime}</span>
+          )}
+        </div>
+        {frontmatter.series && (
+          <div class="mt-4 p-3 rounded-lg bg-surface" data-ps="src/layouts/BlogLayout.astro:o33ul7">
+            <span class="text-muted-foreground" data-ps="src/layouts/BlogLayout.astro:9v2268">Part of series: </span>
+            <span class="font-medium" data-ps="src/layouts/BlogLayout.astro:9v2269">{frontmatter.series}</span>
+            {frontmatter.seriesOrder && (
+              <span class="text-muted-foreground" data-ps="src/layouts/BlogLayout.astro:9v226a"> (Part {frontmatter.seriesOrder})</span>
+            )}
+          </div>
+        )}
+      </header>
+
+      {frontmatter.image && (
+        <figure class="mb-8 -mx-4 md:mx-0">
+          <img
+            src={frontmatter.image}
+            alt={frontmatter.imageAlt || frontmatter.title}
+            class="w-full rounded-lg md:rounded-xl object-cover"
+            style="max-height: 500px;" data-ps="src/layouts/BlogLayout.astro:h2r8qk" />
+        </figure>
+      )}
+
+      <div class="prose prose-lg max-w-none" data-ps="src/layouts/BlogLayout.astro:o33ul6">
+        <slot />
+      </div>
+
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <footer class="mt-12 pt-8 border-t border-border" data-ps="src/layouts/BlogLayout.astro:fydg89">
+          <div class="flex flex-wrap gap-2" data-ps="src/layouts/BlogLayout.astro:o33ul5">
+            {frontmatter.tags.map((tag, __psIdx) => (
+              <span class="rounded-md px-3 py-1 text-sm bg-surface text-muted-foreground" data-ps={`src/layouts/BlogLayout.astro:dfgz5m-${__psIdx}`}>
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </footer>
+      )}
+    </article>
+
+    <Footer />
+  </body>
+</html>

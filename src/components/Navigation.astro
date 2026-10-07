@@ -1,0 +1,131 @@
+---
+// Navigation - working mobile menu + scroll glassmorphism
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+
+export interface Props {
+  logo?: string;
+}
+
+const { logo = SITE.name } = Astro.props;
+---
+
+<header id="navbar" class="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-border transition-[background-color,box-shadow]" data-ps="src/components/Navigation.astro:dt8k87">
+  <nav class="h-20 flex items-center" data-ps="src/components/Navigation.astro:m59h3b">
+    <Container class="flex justify-between items-center">
+      <a href="/" class="font-display font-serif text-xl font-medium tracking-tight text-foreground no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5y">
+        {logo}
+      </a>
+
+      <div class="flex items-center gap-8" data-ps="src/components/Navigation.astro:gqvsdc">
+        <div class="hidden md:flex gap-8 items-center text-sm font-medium" data-ps="src/components/Navigation.astro:gqvsdd">
+          <a href="/#approche" class="text-foreground no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5x">Mon approche</a>
+          <a href="/#tarifs" class="text-foreground no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5t">Tarifs et modalités</a>
+          <a href="/#faq" class="text-foreground no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5u">FAQ</a>
+          <a href="/#contact" class="text-foreground no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5v">Contact et accès</a>
+        </div>
+
+        <div class="hidden sm:flex items-center" data-ps="src/components/Navigation.astro:gqvsdd">
+          <a
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-4 py-2 text-sm font-medium transition-colors shadow-xs"
+           data-ps="src/components/Navigation.astro:kd8n5w">
+            Prendre rendez-vous
+          </a>
+        </div>
+
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-ps="src/components/Navigation.astro:5ds1"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </Container>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden overflow-hidden bg-background border-t border-border"
+    role="navigation"
+    aria-label="Navigation mobile"
+    data-ps="src/components/Navigation.astro:gqvsde"
+  >
+    <nav class="flex flex-col py-4 px-6 gap-3" data-ps="src/components/Navigation.astro:m59h3a">
+      <a href="/#approche" class="text-foreground font-medium py-2 no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5w">Mon approche</a>
+      <a href="/#tarifs" class="text-foreground font-medium py-2 no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5v">Tarifs et modalités</a>
+      <a href="/#faq" class="text-foreground font-medium py-2 no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5u">FAQ</a>
+      <a href="/#contact" class="text-foreground font-medium py-2 no-underline hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5t">Contact et accès</a>
+      <div class="pt-2 pb-1" data-ps="src/components/Navigation.astro:gqvsde">
+        <a
+          href={SITE.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-4 py-3 text-sm font-medium transition-colors shadow-xs text-center"
+         data-ps="src/components/Navigation.astro:kd8n5s">
+          Prendre rendez-vous
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  function updateNavbar() {
+    if (window.scrollY > 30) {
+      navbar?.classList.add('shadow-xs');
+    } else {
+      navbar?.classList.remove('shadow-xs');
+    }
+  }
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
+
+  function toggleMenu() {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    if (isOpen) {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      menuIconOpen?.classList.add('hidden');
+      menuIconClose?.classList.remove('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  mobileMenuButton?.addEventListener('click', toggleMenu);
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      toggleMenu();
+    }
+  });
+</script>

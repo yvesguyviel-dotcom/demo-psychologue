@@ -1,0 +1,127 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tarifs et modalités — Léa Marchand, psychologue à Toulon"
+  description="Informations claires sur les tarifs de consultation (60 € / 45 min), les modalités de règlement, les remboursements mutuelles et la politique d'annulation à Toulon."
+  canonicalUrl={`${SITE.url}/tarifs`}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Consultation psychologique individuelle',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: `${SITE.name} - Psychologue`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: SITE.address.city,
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '60',
+      priceCurrency: 'EUR',
+    },
+  }}
+>
+  <div class="py-16 md:py-24" data-ps="src/pages/tarifs.astro:7fagum">
+    <Container>
+      <div class="max-w-3xl mx-auto" data-ps="src/pages/tarifs.astro:7fagul">
+        <div class="inline-flex items-center gap-2 mb-4 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/pages/tarifs.astro:7faguk">
+          <span data-ps="src/pages/tarifs.astro:ld84z6">Honoraires & cadre pratique</span>
+        </div>
+
+        <h1 class="font-display font-serif text-4xl sm:text-5xl font-normal tracking-tight text-foreground mb-6 leading-tight" data-ps="src/pages/tarifs.astro:i4pc6f">
+          Tarifs et modalités de consultation
+        </h1>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-10 font-light" data-ps="src/pages/tarifs.astro:tlf8zx">
+          Une information claire et transparente sur les honoraires, les modes de règlement et l'organisation pratique des consultations.
+        </p>
+
+        <!-- Main Pricing Card -->
+        <div class="p-8 rounded-lg bg-surface border border-border mb-10 shadow-xs" data-ps="src/pages/tarifs.astro:dzjpbg">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-6 pb-6 border-b border-border" data-ps="src/pages/tarifs.astro:dzjpbf">
+            <div data-ps="src/pages/tarifs.astro:dzjpbe">
+              <span class="text-xs uppercase font-medium tracking-wider text-primary block mb-1" data-ps="src/pages/tarifs.astro:ld84yk">Consultation individuelle pour adulte</span>
+              <h2 class="font-display font-serif text-2xl font-normal text-foreground m-0" data-ps="src/pages/tarifs.astro:3gaeys">Séance au cabinet</h2>
+            </div>
+            <div class="text-left sm:text-right" data-ps="src/pages/tarifs.astro:dzjpbd">
+              <span class="font-display font-serif text-4xl font-normal text-foreground" data-ps="src/pages/tarifs.astro:ld84yj">60 €</span>
+              <span class="text-sm text-muted-foreground block" data-ps="src/pages/tarifs.astro:ld84yi">par séance (45 min)</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground" data-ps="src/pages/tarifs.astro:dzjpbc">
+            <div data-ps="src/pages/tarifs.astro:dzjpbb">
+              <strong class="text-foreground font-medium block mb-1">Modalités de règlement</strong>
+              <p class="m-0 leading-relaxed" data-ps="src/pages/tarifs.astro:tlf8zy">
+                Règlement direct à l'issue de la consultation par carte bancaire ou chèque.
+              </p>
+            </div>
+            <div data-ps="src/pages/tarifs.astro:dzjpba">
+              <strong class="text-foreground font-medium block mb-1">Facturation mutuelle</strong>
+              <p class="m-0 leading-relaxed" data-ps="src/pages/tarifs.astro:tlf8zz">
+                Une note d'honoraires est délivrée pour solliciter un remboursement auprès de votre complémentaire santé.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed modalities -->
+        <div class="space-y-8 text-foreground" data-ps="src/pages/tarifs.astro:dzjpb9">
+          <section class="p-6 rounded-lg bg-surface border border-border" data-ps="src/pages/tarifs.astro:h5euco">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/tarifs.astro:3gaeyt">
+              Prise en charge par l'Assurance Maladie et les mutuelles
+            </h2>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-3" data-ps="src/pages/tarifs.astro:tlf900">
+              En France, les séances de psychologie réalisées en cabinet libéral ne font pas l'objet d'un remboursement par la Sécurité sociale.
+            </p>
+            <p class="text-sm text-muted-foreground leading-relaxed m-0" data-ps="src/pages/tarifs.astro:tlf901">
+              Cependant, la plupart des mutuelles proposent aujourd'hui des forfaits de prise en charge (par exemple un nombre défini de séances par an ou un forfait en euros). N'hésitez pas à vous renseigner auprès de votre organisme complémentaire afin de connaître le détail de votre contrat.
+            </p>
+          </section>
+
+          <section class="p-6 rounded-lg bg-surface border border-border" data-ps="src/pages/tarifs.astro:h5eucn">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/tarifs.astro:3gaeyu">
+              Engagement et politique d'annulation
+            </h2>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-3" data-ps="src/pages/tarifs.astro:tlf902">
+              Le travail psychologique repose sur la régularité et l'engagement mutuel. Le créneau réservé vous est entièrement dédié.
+            </p>
+            <p class="text-sm text-muted-foreground leading-relaxed m-0" data-ps="src/pages/tarifs.astro:tlf903">
+              En cas d'empêchement, toute annulation ou demande de report doit être communiquée au moins <strong>48 heures à l'avance</strong> (par téléphone ou e-mail). Tout rendez-vous non honoré ou annulé hors délai reste dû, par respect pour le cadre et pour permettre à d'autres patients de bénéficier du créneau libéré.
+            </p>
+          </section>
+
+          <!-- Emergency box -->
+          <div class="p-6 rounded-lg bg-surface border border-border" data-ps="src/pages/tarifs.astro:dzjpb8">
+            <p class="text-xs text-muted-foreground leading-relaxed m-0" data-ps="src/pages/tarifs.astro:tlf90p">
+              <strong class="font-medium text-foreground">Mention légale :</strong> Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le 15 ou le 3114. Cabinet fictif à visée de démonstration.
+            </p>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row gap-4" data-ps="src/pages/tarifs.astro:dzjpb7">
+            <a
+              href={SITE.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3.5 text-sm font-medium transition-colors shadow-xs"
+             data-ps="src/pages/tarifs.astro:ybqwa4">
+              Prendre rendez-vous
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-md border border-border bg-surface hover:bg-border/60 text-foreground px-6 py-3.5 text-sm font-medium transition-colors"
+             data-ps="src/pages/tarifs.astro:ybqwa3">
+              Accéder aux coordonnées
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</BaseLayout>

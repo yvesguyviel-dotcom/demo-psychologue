@@ -1,0 +1,95 @@
+---
+// Footer component - shared across all pages
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+
+export interface Props {
+  companyName?: string;
+  companyDescription?: string;
+  copyright?: string;
+}
+
+const {
+  companyName = SITE.name,
+  copyright = `© ${new Date().getFullYear()} ${companyName}. Tous droits réservés.`
+} = Astro.props;
+---
+
+<footer class="bg-dark text-dark-foreground py-16 border-t border-dark-border" data-ps="src/components/Footer.astro:ikmf33">
+  <Container>
+    <!-- Emergency Warning Strip -->
+    <div class="mb-12 p-6 rounded-lg bg-dark-background border border-dark-border" data-ps="src/components/Footer.astro:p4vf85">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3" data-ps="src/components/Footer.astro:p4vf86">
+        <span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground shrink-0" data-ps="src/components/Footer.astro:abywz3">
+          Urgences & santé
+        </span>
+        <p class="text-xs md:text-sm text-dark-foreground leading-relaxed m-0" data-ps="src/components/Footer.astro:csfaj">
+          Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le <strong class="text-secondary-foreground font-semibold">15</strong> (SAMU) ou le <strong class="text-secondary-foreground font-semibold">3114</strong> (numéro national de prévention du suicide).
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12" data-ps="src/components/Footer.astro:p4vf87">
+      <!-- Practitioner Info -->
+      <div class="md:col-span-5" data-ps="src/components/Footer.astro:p4vf89">
+        <h2 class="font-display font-serif text-xl font-normal text-dark-foreground mb-3" data-ps="src/components/Footer.astro:f0091f">
+          {companyName}, psychologue
+        </h2>
+        <p class="text-sm text-dark-muted mb-4 leading-relaxed" data-ps="src/components/Footer.astro:csfak">
+          Cabinet individuel (EI) à Toulon.<br />
+          Accompagnement psychologique individuel et confidentiel pour adultes.
+        </p>
+        <div class="text-xs text-dark-muted space-y-1" data-ps="src/components/Footer.astro:p4vf88">
+          <p class="m-0" data-ps="src/components/Footer.astro:csfal"><strong class="text-dark-foreground font-medium">Titre protégé :</strong> Psychologue clinicienne</p>
+          <p class="m-0" data-ps="src/components/Footer.astro:csfam"><strong class="text-dark-foreground font-medium">N° RPPS :</strong> {SITE.rpps}</p>
+          <p class="m-0" data-ps="src/components/Footer.astro:csfan"><strong class="text-dark-foreground font-medium">Diplôme :</strong> {SITE.diploma}</p>
+        </div>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="md:col-span-3" data-ps="src/components/Footer.astro:p4vf8a">
+        <h3 class="text-xs uppercase tracking-wider font-semibold text-dark-foreground mb-4" data-ps="src/components/Footer.astro:fh1w6d">Navigation</h3>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5 text-sm text-dark-muted">
+          <li data-ps="src/components/Footer.astro:wyji5m"><a href="/" class="text-dark-foreground/90 no-underline hover:text-primary transition-colors" data-ps="src/components/Footer.astro:7gqbzi">Accueil</a></li>
+          <li data-ps="src/components/Footer.astro:wyji5n"><a href="/approche" class="text-dark-foreground/90 no-underline hover:text-primary transition-colors" data-ps="src/components/Footer.astro:7gqbzj">Mon approche</a></li>
+          <li data-ps="src/components/Footer.astro:wyji5o"><a href="/tarifs" class="text-dark-foreground/90 no-underline hover:text-primary transition-colors" data-ps="src/components/Footer.astro:7gqbzk">Tarifs et modalités</a></li>
+          <li data-ps="src/components/Footer.astro:wyji5p"><a href="/faq" class="text-dark-foreground/90 no-underline hover:text-primary transition-colors" data-ps="src/components/Footer.astro:7gqbzl">FAQ</a></li>
+          <li data-ps="src/components/Footer.astro:wyji5q"><a href="/contact" class="text-dark-foreground/90 no-underline hover:text-primary transition-colors" data-ps="src/components/Footer.astro:7gqbzm">Contact et accès</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Practical info -->
+      <div class="md:col-span-4" data-ps="src/components/Footer.astro:p4vf89">
+        <h3 class="text-xs uppercase tracking-wider font-semibold text-dark-foreground mb-4" data-ps="src/components/Footer.astro:fh1w6c">Informations pratiques</h3>
+        <div class="text-sm text-dark-muted space-y-2 mb-4" data-ps="src/components/Footer.astro:p4vf8a">
+          <p class="m-0 text-dark-foreground" data-ps="src/components/Footer.astro:csfao">{SITE.address.street}</p>
+          <p class="m-0 text-dark-foreground" data-ps="src/components/Footer.astro:csfap">{SITE.address.postalCode} {SITE.address.city}</p>
+          <p class="m-0 pt-1" data-ps="src/components/Footer.astro:csfaq">
+            <a href={`tel:${SITE.phoneFormatted}`} class="text-dark-foreground hover:text-primary transition-colors no-underline" data-ps="src/components/Footer.astro:7gqbzn">
+              Tél : {SITE.phone}
+            </a>
+          </p>
+          <p class="m-0" data-ps="src/components/Footer.astro:csfar">
+            <a href={`mailto:${SITE.email}`} class="text-dark-foreground hover:text-primary transition-colors no-underline" data-ps="src/components/Footer.astro:7gqbzo">
+              {SITE.email}
+            </a>
+          </p>
+        </div>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2 text-xs text-dark-muted pt-2 border-t border-dark-border">
+          <li data-ps="src/components/Footer.astro:wyji5r"><a href="/mentions-legales" class="text-dark-muted hover:text-dark-foreground transition-colors no-underline" data-ps="src/components/Footer.astro:7gqbzp">Mentions légales</a></li>
+          <li data-ps="src/components/Footer.astro:wyji5s"><a href="/confidentialite" class="text-dark-muted hover:text-dark-foreground transition-colors no-underline" data-ps="src/components/Footer.astro:7gqbzq">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mandatory demonstration notice & Copyright -->
+    <div class="border-t border-dark-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-dark-muted" data-ps="src/components/Footer.astro:p4vf8b">
+      <p class="m-0 font-medium text-dark-foreground/80" data-ps="src/components/Footer.astro:csfas">
+        Cabinet fictif à visée de démonstration.
+      </p>
+      <p class="m-0" data-ps="src/components/Footer.astro:euok">
+        {copyright}
+      </p>
+    </div>
+  </Container>
+</footer>

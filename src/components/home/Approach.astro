@@ -1,0 +1,79 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section id="approche" class="py-20 md:py-28 bg-surface border-t border-b border-border" data-ps="src/components/home/Approach.astro:section">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start" data-ps="src/components/home/Approach.astro:514caf">
+      <!-- Left column: Title, subtitle, image -->
+      <div class="lg:col-span-5" data-ps="src/components/home/Approach.astro:balf0v">
+        <div class="inline-flex items-center gap-2 mb-3 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/components/home/Approach.astro:balf0u">
+          <span data-ps="src/components/home/Approach.astro:fj6gx8">Démarche clinique</span>
+        </div>
+        <h2 class="font-display font-serif text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-4" data-ps="src/components/home/Approach.astro:utw8vn">
+          Mon approche
+        </h2>
+        <p class="text-sm uppercase tracking-wider font-medium text-foreground mb-6" data-ps="src/components/home/Approach.astro:2swc0l">
+          Cadre déontologique et écoute neutre
+        </p>
+
+        <div class="rounded-lg overflow-hidden border border-border bg-background aspect-[16/10] mb-6 shadow-xs" data-ps="src/components/home/Approach.astro:balf0t">
+          <img crossorigin="anonymous" src="https://images.unsplash.com/photo-1714386230815-4dcd66166cdf?auto=format&fit=max&w=1920&q=80"
+            alt="Espace d'écoute calme et confidentiel au cabinet de consultation"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1920"
+            height="1200" data-ps="src/components/home/Approach.astro:2iv7yy" />
+        </div>
+
+        <div class="text-xs text-muted-foreground" data-ps="src/components/home/Approach.astro:balf0s">
+          <p class="m-0" data-ps="src/components/home/Approach.astro:2swc0m">Cabinet de consultation individuel · Respect du secret professionnel (Art. 226-13 du Code pénal).</p>
+        </div>
+      </div>
+
+      <!-- Right column: Detailed text & mandatory notices -->
+      <div class="lg:col-span-7 flex flex-col justify-center space-y-6 text-muted-foreground leading-relaxed" data-ps="src/components/home/Approach.astro:balf0r">
+        <p class="text-base text-foreground font-normal leading-relaxed" data-ps="src/components/home/Approach.astro:2swc18">
+          L'accompagnement psychologique repose sur un espace de parole confidentiel, régulier et sécurisant. Chaque consultation est un temps d'échange adapté à votre situation présente, fondé sur le respect mutuel et la neutralité bienveillante.
+        </p>
+        
+        <p data-ps="src/components/home/Approach.astro:2swc19">
+          Le cabinet s'adresse aux adultes traversant des périodes de questionnement, de transition de vie, de surcharge mentale ou de souffrance psychologique. Le travail clinique s'établit dans le respect strict du Code de déontologie des psychologues, garantissant le secret professionnel et une écoute sans jugement.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2" data-ps="src/components/home/Approach.astro:balf0q">
+          <div class="p-5 rounded-md bg-background border border-border" data-ps="src/components/home/Approach.astro:balf0p">
+            <h3 class="font-serif font-medium text-base text-foreground mb-2" data-ps="src/components/home/Approach.astro:pisvvv">Un temps pour soi</h3>
+            <p class="text-xs text-muted-foreground m-0 leading-relaxed" data-ps="src/components/home/Approach.astro:2swc1a">
+              Un entretien individuel de 45 minutes pour poser vos interrogations, élaborer à votre rythme et identifier vos ressources.
+            </p>
+          </div>
+          <div class="p-5 rounded-md bg-background border border-border" data-ps="src/components/home/Approach.astro:balf0o">
+            <h3 class="font-serif font-medium text-base text-foreground mb-2" data-ps="src/components/home/Approach.astro:pisvvw">Cadre rigoureux</h3>
+            <p class="text-xs text-muted-foreground m-0 leading-relaxed" data-ps="src/components/home/Approach.astro:2swc1b">
+              Une pratique référée aux connaissances cliniques actuelles, sans protocole standardisé ni grille d'évaluation préconçue.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mandatory emergency box -->
+        <div class="p-6 rounded-lg bg-background border border-border mt-4" data-ps="src/components/home/Approach.astro:balf0n">
+          <p class="text-xs text-muted-foreground leading-relaxed m-0" data-ps="src/components/home/Approach.astro:2swc1c">
+            <strong class="font-medium text-foreground">Mention légale :</strong> Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le 15 ou le 3114. Cabinet fictif à visée de démonstration.
+          </p>
+        </div>
+
+        <div class="pt-2" data-ps="src/components/home/Approach.astro:balf0m">
+          <a
+            href="/approche"
+            class="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors gap-1 group no-underline"
+           data-ps="src/components/home/Approach.astro:9wu8qb">
+            <span data-ps="src/components/home/Approach.astro:fj6gx9">En savoir plus sur le cadre de consultation</span>
+            <span class="group-hover:translate-x-1 transition-transform" data-ps="src/components/home/Approach.astro:fj6gxa">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

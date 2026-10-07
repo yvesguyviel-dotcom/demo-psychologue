@@ -1,0 +1,112 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const fullFaqs = [
+  {
+    question: "Quelle est la différence entre un psychologue et un psychiatre ?",
+    answer: "Le psychologue est titulaire d'un diplôme universitaire de haut niveau (Master 2 en psychologie clinique). Il propose un espace d'écoute et d'accompagnement par la parole, sans prescription médicamenteuse. Le psychiatre est un médecin spécialiste des troubles psychiques qui peut poser un diagnostic médical et prescrire un traitement médicamenteux."
+  },
+  {
+    question: "Comment se déroule la première consultation ?",
+    answer: "Le premier entretien est avant tout un moment de rencontre. Il permet de formuler librement les motifs de votre démarche, d'échanger sur votre situation présente et de préciser le cadre de travail. C'est un échange libre, sans engagement de suivi à long terme si vous ne le souhaitez pas."
+  },
+  {
+    question: "Quelle est la durée d'un accompagnement psychologique ?",
+    answer: "La durée varie en fonction de chaque situation individuelle et de vos objectifs. Certains accompagnements ciblent un questionnement ponctuel sur quelques séances, tandis que d'autres s'inscrivent dans une démarche plus approfondie au fil des mois."
+  },
+  {
+    question: "Quel est le tarif d'une consultation et comment régler ?",
+    answer: "La séance individuelle de 45 minutes est au tarif de 60 €. Le règlement s'effectue à la fin de chaque séance par carte bancaire ou chèque bancaire. Une facture est établie sur simple demande."
+  },
+  {
+    question: "Les consultations sont-elles remboursées par la Sécurité sociale ?",
+    answer: "Non, les séances en cabinet de psychologie libéral ne sont pas prises en charge par la Sécurité sociale. Toutefois, de nombreuses mutuelles remboursent un nombre défini de séances par an."
+  },
+  {
+    question: "Le secret professionnel est-il absolu ?",
+    answer: "Oui. En application de l'article 226-13 du Code pénal et du Code de déontologie des psychologues, tout ce qui est partagé lors des entretiens demeure strictement confidentiel."
+  },
+  {
+    question: "Que faire en cas d'empêchement pour un rendez-vous ?",
+    answer: "Merci de prévenir au minimum 48 heures à l'avance par téléphone ou e-mail afin de permettre la réattribution du créneau. Les rendez-vous annulés hors délai sont considérés comme dus."
+  }
+];
+---
+
+<BaseLayout
+  title="FAQ — Questions fréquentes | Léa Marchand, psychologue à Toulon"
+  description="Réponses aux questions fréquentes concernant les séances de psychologie, le déroulement du premier entretien, le secret professionnel et les tarifs à Toulon."
+  canonicalUrl={`${SITE.url}/faq`}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: fullFaqs.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  }}
+>
+  <div class="py-16 md:py-24" data-ps="src/pages/faq.astro:2mg1wh">
+    <Container>
+      <div class="max-w-3xl mx-auto" data-ps="src/pages/faq.astro:2mg1wg">
+        <div class="inline-flex items-center gap-2 mb-4 text-xs font-medium tracking-wider uppercase text-primary" data-ps="src/pages/faq.astro:2mg1wf">
+          <span data-ps="src/pages/faq.astro:bw9w9p">Repères pratiques</span>
+        </div>
+
+        <h1 class="font-display font-serif text-4xl sm:text-5xl font-normal tracking-tight text-foreground mb-6 leading-tight" data-ps="src/pages/faq.astro:pvi5ba">
+          Foire aux questions
+        </h1>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-10 font-light" data-ps="src/pages/faq.astro:91d2jn">
+          Toutes les réponses pour aborder votre première consultation en toute sérénité.
+        </p>
+
+        <div class="divide-y divide-border border-t border-b border-border mb-12" data-ps="src/pages/faq.astro:2mg1we">
+          {fullFaqs.map((faq, index) => (
+            <details class="group py-6" open={index === 0}>
+              <summary class="flex justify-between items-center cursor-pointer list-none text-foreground font-serif font-medium text-lg group-open:text-primary transition-colors focus:outline-none">
+                <span data-ps={`src/pages/faq.astro:bw9w9o-${index}`}>{faq.question}</span>
+                <span class="ml-4 text-muted-foreground group-open:rotate-180 transition-transform text-xs" data-ps={`src/pages/faq.astro:bw9w9n-${index}`}>
+                  ▼
+                </span>
+              </summary>
+              <p class="mt-4 text-sm text-muted-foreground leading-relaxed m-0 pr-6" data-ps={`src/pages/faq.astro:91d2jm-${index}`}>
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+
+        <!-- Emergency box -->
+        <div class="p-6 rounded-lg bg-surface border border-border mb-8" data-ps="src/pages/faq.astro:2mg1wd">
+          <p class="text-xs text-muted-foreground leading-relaxed m-0" data-ps="src/pages/faq.astro:91d2jl">
+            <strong class="font-medium text-foreground">Mention légale :</strong> Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le 15 ou le 3114. Cabinet fictif à visée de démonstration.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4" data-ps="src/pages/faq.astro:2mg1wc">
+          <a
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary-hover px-6 py-3.5 text-sm font-medium transition-colors shadow-xs"
+           data-ps="src/pages/faq.astro:b24xux">
+            Prendre rendez-vous
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-md border border-border bg-surface hover:bg-border/60 text-foreground px-6 py-3.5 text-sm font-medium transition-colors"
+           data-ps="src/pages/faq.astro:b24xuy">
+            Poser une question au cabinet
+          </a>
+        </div>
+      </div>
+    </Container>
+  </div>
+</BaseLayout>

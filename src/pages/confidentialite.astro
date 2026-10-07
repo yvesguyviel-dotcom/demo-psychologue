@@ -1,0 +1,68 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Politique de confidentialité — Léa Marchand, psychologue à Toulon"
+  description="Politique de protection des données personnelles et respect du secret professionnel au cabinet de psychologie de Léa Marchand à Toulon."
+  canonicalUrl={`${SITE.url}/confidentialite`}
+>
+  <div class="py-16 md:py-24" data-ps="src/pages/confidentialite.astro:e6om79">
+    <Container>
+      <div class="max-w-3xl mx-auto" data-ps="src/pages/confidentialite.astro:e6om7a">
+        <h1 class="font-display font-serif text-3xl sm:text-4xl font-normal tracking-tight text-foreground mb-8" data-ps="src/pages/confidentialite.astro:wpy6xk">
+          Politique de confidentialité & secret professionnel
+        </h1>
+
+        <div class="space-y-8 text-sm text-muted-foreground leading-relaxed" data-ps="src/pages/confidentialite.astro:e6om7b">
+          <section data-ps="src/pages/confidentialite.astro:5vz9vd">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/confidentialite.astro:yla4bl">
+              1. Secret professionnel
+            </h2>
+            <p data-ps="src/pages/confidentialite.astro:tjzy0v">
+              La pratique de la psychologie clinique est strictement soumise au <strong>secret professionnel</strong> prévu par l'article 226-13 du Code pénal ainsi que par le Code de déontologie des psychologues.
+            </p>
+            <p data-ps="src/pages/confidentialite.astro:tjzy0w">
+              Toutes les informations confiées lors des consultations individuelles demeurent rigoureusement protégées et ne font l'objet d'aucune communication à des tiers.
+            </p>
+          </section>
+
+          <section data-ps="src/pages/confidentialite.astro:5vz9ve">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/confidentialite.astro:yla4bk">
+              2. Absence de collecte de données sensibles en ligne
+            </h2>
+            <p data-ps="src/pages/confidentialite.astro:tjzy0x">
+              Afin de protéger votre vie privée et la confidentialité de votre démarche, <strong>aucun formulaire de contact à texte libre</strong> n'est proposé sur ce site. Aucune donnée relative à votre état de santé ou motif de consultation n'est enregistrée sur cette plateforme.
+            </p>
+          </section>
+
+          <section data-ps="src/pages/confidentialite.astro:5vz9vf">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/confidentialite.astro:yla4bj">
+              3. Gestion des rendez-vous externes
+            </h2>
+            <p data-ps="src/pages/confidentialite.astro:tjzy0y">
+              La prise de rendez-vous en ligne s'effectue via une plateforme dédiée externe et sécurisée. La gestion de vos données d'identification (nom, numéro de téléphone, courriel) relève des conditions générales de cette plateforme tierce.
+            </p>
+          </section>
+
+          <section data-ps="src/pages/confidentialite.astro:5vz9vg">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/confidentialite.astro:x6zu2h">
+              4. Vos droits (RGPD)
+            </h2>
+            <p data-ps="src/pages/confidentialite.astro:tjzy0z">
+              Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression des données administratives vous concernant, que vous pouvez exercer en contactant directement le cabinet à : <a href={`mailto:${SITE.email}`} class="text-primary underline" data-ps="src/pages/confidentialite.astro:yd678g">{SITE.email}</a>.
+            </p>
+          </section>
+
+          <div class="p-6 rounded-lg bg-surface border border-border mt-8" data-ps="src/pages/confidentialite.astro:e6om7c">
+            <p class="text-xs text-muted-foreground leading-relaxed m-0" data-ps="src/pages/confidentialite.astro:tjzy10">
+              <strong class="font-medium text-foreground">Mention légale :</strong> Cabinet fictif à visée de démonstration. Une séance avec une psychologue ne remplace pas un avis médical. En cas d'urgence, appelez le 15 ou le 3114.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Mentions légales — Léa Marchand, psychologue à Toulon"
+  description="Mentions légales réglementaires du cabinet de psychologie libérale de Léa Marchand à Toulon (EI)."
+  canonicalUrl={`${SITE.url}/mentions-legales`}
+>
+  <div class="py-16 md:py-24" data-ps="src/pages/mentions-legales.astro:ad5qqw">
+    <Container>
+      <div class="max-w-3xl mx-auto" data-ps="src/pages/mentions-legales.astro:ad5qqx">
+        <h1 class="font-display font-serif text-3xl sm:text-4xl font-normal tracking-tight text-foreground mb-8" data-ps="src/pages/mentions-legales.astro:kxplrf">
+          Mentions légales
+        </h1>
+
+        <!-- Mandatory demo disclaimer -->
+        <div class="p-6 rounded-lg bg-surface border border-border mb-10" data-ps="src/pages/mentions-legales.astro:ad5qqy">
+          <p class="text-sm text-foreground font-medium m-0 leading-relaxed" data-ps="src/pages/mentions-legales.astro:hjdv31">
+            Avertissement : Ce site internet est un cabinet fictif réalisé à visée de démonstration. Les informations d'identité, de contact et de prise de rendez-vous sont simulées.
+          </p>
+        </div>
+
+        <div class="space-y-8 text-sm text-muted-foreground leading-relaxed" data-ps="src/pages/mentions-legales.astro:ad5qqz">
+          <section data-ps="src/pages/mentions-legales.astro:3llx50">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/mentions-legales.astro:4xdo90">
+              1. Éditeur du site
+            </h2>
+            <p data-ps="src/pages/mentions-legales.astro:hjdv32">
+              Le site est édité par Léa Marchand, exerçant en profession libérale sous le statut d'Entreprise Individuelle (EI).<br />
+              <strong>Siège du cabinet :</strong> {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}, France.<br />
+              <strong>Téléphone :</strong> {SITE.phone}<br />
+              <strong>Courriel :</strong> {SITE.email}<br />
+              <strong>Titre professionnel :</strong> Psychologue (titre protégé par la loi n° 85-772 du 25 juillet 1985)<br />
+              <strong>N° RPPS :</strong> {SITE.rpps}<br />
+              <strong>Diplôme d'État :</strong> {SITE.diploma}
+            </p>
+          </section>
+
+          <section data-ps="src/pages/mentions-legales.astro:3llx4z">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/mentions-legales.astro:4xdo8z">
+              2. Hébergement
+            </h2>
+            <p data-ps="src/pages/mentions-legales.astro:hjdv33">
+              Ce site web est hébergé sur les infrastructures Cloudflare, Inc.<br />
+              Adresse : 101 Townsend St, San Francisco, CA 94107, États-Unis.
+            </p>
+          </section>
+
+          <section data-ps="src/pages/mentions-legales.astro:3llx4y">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/mentions-legales.astro:4xdo8y">
+              3. Propriété intellectuelle et cadre déontologique
+            </h2>
+            <p data-ps="src/pages/mentions-legales.astro:hjdv34">
+              Tous les contenus textuels et photographiques présents sur ce site sont protégés par le droit d'auteur. L'exercice de la psychologie clinique est soumis au Code de déontologie des psychologues de France (actualisé en 2021).
+            </p>
+          </section>
+
+          <section data-ps="src/pages/mentions-legales.astro:3llx4x">
+            <h2 class="font-display font-serif text-xl font-normal text-foreground mb-3" data-ps="src/pages/mentions-legales.astro:kgnymi">
+              4. Avertissement médical et urgences
+            </h2>
+            <p data-ps="src/pages/mentions-legales.astro:hjdv35">
+              Une séance avec une psychologue ne remplace pas un avis médical ni un traitement psychiatrique. En cas d'urgence vitale ou de détresse psychologique immédiate, contactez les services d'urgence :
+            </p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li data-ps="src/pages/mentions-legales.astro:46err5"><strong>15</strong> : SAMU (urgence médicale)</li>
+              <li data-ps="src/pages/mentions-legales.astro:46erqj"><strong>3114</strong> : Numéro national de prévention du suicide (appel gratuit, 24h/24, 7j/7)</li>
+              <li data-ps="src/pages/mentions-legales.astro:46erqi"><strong>112</strong> : Numéro d'urgence européen</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </Container>
+  </div>
+</BaseLayout>

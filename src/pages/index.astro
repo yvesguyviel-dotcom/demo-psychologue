@@ -1,0 +1,70 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/home/Hero.astro';
+import Approach from '@/components/home/Approach.astro';
+import Tariffs from '@/components/home/Tariffs.astro';
+import Faq from '@/components/home/Faq.astro';
+import ContactSection from '@/components/home/ContactSection.astro';
+---
+
+<BaseLayout
+  title={SITE.title}
+  description={SITE.description}
+  type="website"
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: `${SITE.name} - Psychologue`,
+      description: SITE.description,
+      url: SITE.url,
+      telephone: SITE.phone,
+      email: SITE.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: SITE.address.street,
+        addressLocality: SITE.address.city,
+        postalCode: SITE.address.postalCode,
+        addressCountry: SITE.address.country,
+      },
+      priceRange: '60€',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Comment se déroule le premier entretien ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Le premier entretien permet de faire connaissance, d'aborder les motifs de votre démarche et d'évaluer ensemble la pertinence d'un accompagnement.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quelle est la durée et le rythme des séances ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Chaque séance dure 45 minutes pour un tarif de 60 €. Le rythme est défini conjointement lors des premiers rendez-vous.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Les séances sont-elles remboursées ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Les consultations ne sont pas prises en charge par la Sécurité sociale, mais de nombreuses mutuelles remboursent un forfait de séances sur facture.',
+          },
+        },
+      ],
+    },
+  ]}
+>
+  <Hero />
+  <Approach />
+  <Tariffs />
+  <Faq />
+  <ContactSection />
+</BaseLayout>
